@@ -11,7 +11,7 @@ All you will need from this package to use the utilities in it is the bundled Ja
 If you want to make use of this package on your own, you can make use of the functionality of this package from Deno. 
 
 ```typescript
-import { Router } from '/mod.ts';
+import { Router } from 'https://deno.land/x/phs_routing/mod.ts';
 
 let router = new Router();
 router.get('/:id', (req) => {
