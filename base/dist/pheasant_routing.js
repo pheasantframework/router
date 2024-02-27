@@ -72,4 +72,5 @@ class Router {
         });
     }
 }
+window.Router = Router;
 export { Router as Router };
