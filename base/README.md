@@ -1,4 +1,7 @@
 # Pheasant Routing Package
+![Custom badge](https://shield.deno.dev/x/phs_routing)
+![Custom badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fdeno-visualizer.danopia.net%2Fshields%2Fupdates%2Fhttps%2Fdeno.land%2Fx%2Fphs_routing%2Fmod.ts)
+
 This is the TypeScript Library used in making the base router class to be implemented by the Dart `pheasant_router` package in The Pheasant Framework.
 
 ## Installation
