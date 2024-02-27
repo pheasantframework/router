@@ -34,11 +34,15 @@ If you would want to make use of the router yourself (for contributions or whate
 @staticInterop
 class Router {
     external factory Router();
-    //...
+}
+
+@staticInterop
+extension on Router {
+    //... other functions implemented
 }
 ```
 
-If you're not conversant with JS interop in Dart, it would be helpful to check [this page on dart.dev]().
+If you're not conversant with JS interop in Dart, it would be helpful to check [this page on dart.dev](https://dart.dev/interop/js-interop).
 
 ## Contributions and Extensions
 The library, as of its current version, doesn't make use of any external libraries. This means that you can make use of, edit and implement this library in NodeJS and Deno (although the library was originally made in Deno). 
