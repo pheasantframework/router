@@ -14,7 +14,7 @@ await build({
   package: {
     // package.json properties
     name: "pheasant-router",
-    version: Deno.args[0],
+    version: "0.1.1",
     description: "The JavaScript implementation of the Pheasant Routing Package used in routing Pheasant Packages",
     license: "MIT",
     repository: {
