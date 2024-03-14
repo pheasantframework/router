@@ -45,8 +45,10 @@ function getRouteRequest(window1, uri, pathregex) {
 }
 class Router {
     routes;
-    constructor(){
+    initialRoute;
+    constructor(initialRoute = '/'){
         this.routes = [];
+        this.initialRoute = initialRoute;
     }
     get(uri, callback) {
         if (!uri || !callback) throw new Error('uri or callback must be given');
@@ -62,6 +64,12 @@ class Router {
         this.routes.push(route);
     }
     init() {
+        if (this.routes.find((r)=>r.uri === '/') === undefined) {
+            this.routes.push({
+                uri: '/',
+                callback: (_)=>null
+            });
+        }
         this.routes.some((route)=>{
             const regEx = createRegExpFromPath(route.uri);
             const path = window.location.pathname;
@@ -72,5 +80,95 @@ class Router {
         });
     }
 }
-window.Router = Router;
-export { Router as Router };
+function getState(event) {
+    return event.state ?? history.state;
+}
+function initState(uri, state = {}) {
+    history.replaceState(state, null, uri);
+}
+class SPARouter {
+    routes;
+    initialRoute;
+    constructor(initialRoute = '/'){
+        this.routes = [];
+        this.initialRoute = initialRoute;
+        initState(initialRoute);
+    }
+    get(uri, callback) {
+        if (!uri || !callback) throw new Error('uri or callback must be given');
+        if (typeof uri !== "string") throw new Error('typeof uri must be a string');
+        if (typeof callback !== "function") throw new TypeError('typeof callback must be a function');
+        this.routes.forEach((route)=>{
+            if (route.uri === uri) throw new Error(`the uri ${route.uri} already exists`);
+        });
+        const route = {
+            uri,
+            callback
+        };
+        this.routes.push(route);
+    }
+    init() {
+        if (this.routes.find((r)=>r.uri === '/') === undefined) {
+            this.routes.push({
+                uri: '/',
+                callback: (_)=>null
+            });
+        }
+        addEventListener('popstate', (event)=>{
+            const histstate = getState(event);
+            const state = Object.create(histstate, {
+                details: {
+                    value: {},
+                    writable: false
+                }
+            });
+            this.routes.some((route)=>{
+                const regEx = createRegExpFromPath(route.uri);
+                const path = window.location.pathname;
+                if (path.match(regEx)) {
+                    const req = getRouteRequest(window, route.uri, regEx);
+                    return route.callback.call(this, req, state);
+                }
+            });
+        });
+        addEventListener('pushstate', (event)=>{
+            const histstate = getState(event);
+            const state = Object.create(histstate, {
+                details: {
+                    value: event.detail ?? {},
+                    writable: false
+                }
+            });
+            this.routes.some((route)=>{
+                const regEx = createRegExpFromPath(route.uri);
+                const path = window.location.pathname;
+                if (path.match(regEx)) {
+                    const req = getRouteRequest(window, route.uri, regEx);
+                    return route.callback.call(this, req, state);
+                }
+            });
+        });
+    }
+}
+const pushEvent = new CustomEvent('pushstate');
+function navigateTo(uri, state = {}, details) {
+    let event = pushEvent;
+    if (details) {
+        event = new CustomEvent('pushstate', {
+            detail: details ?? {}
+        });
+    }
+    history.pushState(state, null, uri);
+    dispatchEvent(event);
+}
+function navigateBack() {
+    history.back();
+}
+Object.assign(window, {
+    Router: Router,
+    SPARouter: SPARouter,
+    navigateTo: navigateTo,
+    navigateBack: navigateBack,
+    pushEvent: pushEvent
+});
+export { Router as Router, SPARouter as SPARouter, navigateBack as navigateBack, navigateTo as navigateTo, pushEvent as pushEvent };
