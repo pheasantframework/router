@@ -1,3 +1,8 @@
 npm/
 
 deno.lock
+
+# Ignore the deno server file used to serve the example code
+example/*.ts
+# Ignore the dist file - duplicate
+example/*.min.js
