@@ -1,5 +1,6 @@
 import { Route } from './route/Route.ts';
 import { RouteFunc } from './route/RouteFunc.ts';
+import { BaseRouter } from './route/BaseRouter.ts';
 import { createRegExpFromPath } from '../utils/Extract.ts';
 import { getRouteRequest } from '../utils/Request.ts';
 
@@ -11,7 +12,7 @@ import { getRouteRequest } from '../utils/Request.ts';
  * This router has the power to create multiple kinds of routes. These routes can be static like `"/state"` or having parameters like `"/:id"` to get the `id`.
  * 
  * ```typescript
- * let router = new Router();
+ * let router = new Router('/');
  * router.get('/', (req) => {
  *   console.log("Hello World");
  * });
@@ -23,9 +24,8 @@ import { getRouteRequest } from '../utils/Request.ts';
  * 
  * More information on functionality is in the function definitions.
  */
-class Router {
+class Router implements BaseRouter {
     /**
-     * The list of routes in a router.
      * @type {Route[]}
      */
     routes: Route[];
@@ -56,7 +56,7 @@ class Router {
      * 
      * ```typescript
      * route.get('/seats/:no', (req) => {
-     *   let queryObj = req.query
+     *   let seatNo = req.params.no;
      * });
      * ```
      * 
