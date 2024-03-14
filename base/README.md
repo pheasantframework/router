@@ -5,10 +5,14 @@
 
 This is the TypeScript Library used in making the base router class to be implemented by the Dart `pheasant_router` package in The Pheasant Framework.
 
+This is also a TypeScript/JavaScript Library you can use in your web applications for powerful, functional and easy routing in your websites/web apps.
+
 ## Installation
-This package is for utilization in the Pheasant Framework.
+This package is for utilization in the Pheasant Framework, but can be used outside of it as a client-side library for implementing routing in your web apps.
 
 All you will need from this package to use the utilities in it is the bundled JavaScript files found in the `dist/` folder.
+
+If you are using this in JavaScript/TypeScript outside Dart, or Pheasant, you can simply install this from jsr. See https://jsr.io/ for information. If you are using Deno, you can simply import this package from https://deno.land/x/.
 
 ## Implement
 ### JavaScript/Typescript
