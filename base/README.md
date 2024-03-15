@@ -43,7 +43,18 @@ class Router {
 
 @staticInterop
 extension on Router {
-    //... other functions implemented
+    /* other functions implemented... */
+}
+
+@JS('SPARouter')
+@staticInterop
+class SPARouter {
+    external factory SPARouter(String? initialRoute);
+}
+
+@staticInterop
+extension on SPARouter {
+    /* other functions implemented... */
 }
 ```
 
