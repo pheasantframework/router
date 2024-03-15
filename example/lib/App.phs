@@ -1,0 +1,15 @@
+<script>
+import 'package:pheasant_router/components.dart';
+
+String statement = "Hello World";
+</script>
+
+<template>
+<div>
+  <h1>Example Project for pheasant_router</h1>
+  <PlaceholderPlugin />
+</div>
+</template>
+
+<style>
+</style>

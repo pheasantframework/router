@@ -1,0 +1,14 @@
+project: nini
+version: 1.0.0
+env: dart
+type: plugin
+config:
+  sass: false
+  js: false
+  linter: false
+  formatter: false
+  phsComponents: false
+plugins:
+  main: []
+  dev: []
+dependencies: []

@@ -1,0 +1,20 @@
+project: example
+version: 1.0.0
+env: dart
+entry:
+  main: web/main.dart
+  app: lib/App.phs
+config:
+  sass: false
+  js: false
+  linter: false
+  formatter: false
+  phsComponents: false
+plugins:
+  main:
+    - pheasant_router:
+        version: 1.0.0
+        source: path
+        path: ..
+  dev: []
+dependencies: []
