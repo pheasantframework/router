@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "exports": "./mod.ts",
   "tasks": {
-    "dev": "deno run --watch main.ts",
-    "test": "deno test test.ts"
+    "test": "deno test test.ts",
+    "serve": "deno run -A example/server.ts"
   }
 }

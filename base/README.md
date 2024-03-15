@@ -15,10 +15,48 @@ All you will need from this package to use the utilities in it is the bundled Ja
 If you are using this in JavaScript/TypeScript outside Dart, or Pheasant, you can simply install this from jsr. See https://jsr.io/ for information. If you are using Deno, you can simply import this package from https://deno.land/x/.
 
 ## Implement
+This library consists of routers that can be easily included in your web application at the client side. 
+
+This includes the `Router` class, which can be used for basic routing in your web application. 
+
+```javascript
+import { Router } from 'https://deno.land/x/phs_routing/mod.ts';
+
+// Create a new router object
+let router = new Router('/');
+
+// Add new routes
+router.get('/', (req) => {
+    // Handle 
+    console.log("Hello World");
+});
+
+// Initialise the router on the web application
+router.init();
+```
+
+The library also includes routing for single-page applications, or for fully client-side routing via the `SPARouter`, which can be used to create simple Single-Page Applications. 
+
+```javascript
+import { SPARouter } from 'https://deno.land/x/phs_routing/mod.ts';
+
+// Create a new SPA router object
+let router = new SPARouter('/');
+
+// Add new routes
+router.get('/', (req, state) => {
+    // Handle 
+    console.log(`Hello ${state.name}`);
+});
+
+// Initialise the router on the web application
+router.init();
+```
+
 ### JavaScript/Typescript
 If you want to make use of this package on your own, you can make use of the functionality of this package from Deno. 
 
-```typescript
+```javascript
 import { Router } from 'https://deno.land/x/phs_routing/mod.ts';
 
 let router = new Router();
@@ -38,7 +76,7 @@ If you would want to make use of the router yourself (for contributions or whate
 @JS('Router')
 @staticInterop
 class Router {
-    external factory Router();
+    external factory Router(String? initialRoute);
 }
 
 @staticInterop
