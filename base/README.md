@@ -69,7 +69,7 @@ router.init();
 ```
 
 ### Dart
-The `pheasant_routing` package (not yet) on [pub.dev] should contain full implementation of the library for the needs of the Pheasant Framework.
+The `pheasant_routing` package (not yet) on [pub.dev](https://pub.dev/) should contain full implementation of the library for the needs of the Pheasant Framework.
 
 If you would want to make use of the router yourself (for contributions or whatever you would want to do), add the minified JavaScript file as a script tag, and then make use of the functionality in Dart as you normally would. 
 ```dart
@@ -95,6 +95,10 @@ extension on SPARouter {
     /* other functions implemented... */
 }
 ```
+
+You wouldn't need to do this unless you want to make use of **this library** rather than **the package**. 
+
+> If you want to use the package, check the details here: https://github.com/pheasantframework/router.
 
 If you're not conversant with JS interop in Dart, it would be helpful to check [this page on dart.dev](https://dart.dev/interop/js-interop).
 
