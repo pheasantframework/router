@@ -2,6 +2,7 @@ import {
     Router, 
     SPARouter
 } from './lib/router.ts';
+// @deno-types="./lib/src/spa/navigation.d.ts"
 import {
     navigateTo,
     navigateBack,
