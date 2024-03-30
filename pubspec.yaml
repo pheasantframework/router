@@ -8,7 +8,7 @@ environment:
 
 # Add regular dependencies here.
 dependencies:
-  pheasant: any
+  pheasant: ^0.1.0-grade
   # path: ^1.8.0
 
 dev_dependencies:
