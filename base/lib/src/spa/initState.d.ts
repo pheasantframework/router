@@ -1,0 +1,1 @@
+export function initState(uri: string, state: object): void;

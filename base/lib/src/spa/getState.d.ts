@@ -1,0 +1,1 @@
+export function getState(event: Event): object;
