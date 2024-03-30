@@ -13,4 +13,3 @@ extension JSRouterMethods on JSRouter {
   external void get(String uri, JSFunction callback);
   external void init();
 }
-

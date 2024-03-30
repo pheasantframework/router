@@ -3,10 +3,12 @@ import 'js/spa_router.dart';
 
 import 'js/router.dart';
 
+// TODO: Document
+
 class Router {
   final JSRouter _router;
 
-  Router([String initialLocation = '/']): _router = JSRouter(initialLocation);
+  Router([String initialLocation = '/']) : _router = JSRouter(initialLocation);
 
   void get(String uri, RouterFunction function) {
     _router.get(uri, (function.jsify() as JSFunction));
@@ -20,7 +22,8 @@ class Router {
 class SPARouter {
   final JSSPARouter _router;
 
-  SPARouter([String initialLocation = '/']): _router = JSSPARouter(initialLocation);
+  SPARouter([String initialLocation = '/'])
+      : _router = JSSPARouter(initialLocation);
 
   void get(String uri, SPARouterFunction function) {
     _router.get(uri, (function.jsify() as JSFunction));

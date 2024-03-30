@@ -7,4 +7,3 @@ import 'package:example/main.phs.dart';
 void main() {
   createApp(App);
 }
-  

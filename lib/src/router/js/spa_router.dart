@@ -13,4 +13,3 @@ extension JSSPARouterMethods on JSSPARouter {
   external void get(String uri, JSFunction callback);
   external void init();
 }
-
