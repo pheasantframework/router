@@ -15,3 +15,5 @@ class PheasantRouterApp extends PheasantBaseApp {
     return this;
   }
 }
+
+typedef RouterApp = PheasantRouterApp;
