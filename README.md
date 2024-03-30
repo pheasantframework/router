@@ -58,7 +58,7 @@ void main() {
 ```
 
 ## Versions
-Dart Package: 
+Dart Package: ![Pub Version](https://img.shields.io/pub/v/pheasant_router?labelColor=rgb(245%2C%20193%2C%2066)&link=https%3A%2F%2Fpub.dev%2Fpackages%2Fpheasant_router)
 
 Deno Package: 
 ![Custom badge](https://shield.deno.dev/x/phs_routing)
