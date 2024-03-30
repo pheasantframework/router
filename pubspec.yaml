@@ -1,12 +1,12 @@
 name: pheasant_router
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: >-
+  The Pheasant Framework Routing Package, for single-page and server-side routing of your pheasant applications.
+version: 0.0.1-pr
+repository: https://github.com/pheasantframework/router
 
 environment:
-  sdk: ^3.3.1
+  sdk: '>=3.0.0 <4.0.0'
 
-# Add regular dependencies here.
 dependencies:
   pheasant: ^0.1.0-grade
   # path: ^1.8.0

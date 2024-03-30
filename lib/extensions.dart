@@ -10,8 +10,9 @@ class PheasantRouterApp extends PheasantBaseApp {
     addScriptTag(true);
   }
 
-  PheasantRouterApp router(Router router) {
+  PheasantRouterApp use({required Router router}) {
     _router = router;
+    _router.init();
     return this;
   }
 }
